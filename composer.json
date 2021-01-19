@@ -1,0 +1,12 @@
+{
+    "name": "krzysiek/fitapp-php",
+    "authors": [
+        {
+            "name": "Krzysiek",
+            "email": "krzysztofkasowicz1995@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.2"
+    }
+}
