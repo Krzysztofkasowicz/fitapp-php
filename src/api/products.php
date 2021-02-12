@@ -1,6 +1,6 @@
 <?php
 include_once '../../bootstrap.php';
-include_once '../model/User.php';
+include_once '../model/Product.php';
 include_once '../config/DatabaseConnector.php';
 
 header("Access-Control-Allow-Origin: *");
@@ -11,19 +11,23 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 $url = $_SERVER['REQUEST_URI'];
 $urls = explode('/', $url);
+$id = end($urls);
 
 $connection = new DatabaseConnector();
-$user = new User($connection->getConnection());
+$products = new Product($connection->getConnection());
+
+$input = (array) json_decode(file_get_contents('php://input'), TRUE);
 
 switch ($_SERVER['REQUEST_METHOD']){
-    case 'GET': if (end($urls) !== "users.php")
-                    print_r($user->read(end($urls)));
-                else
-                    print_r($user->readAll());
-                break;
-    case 'POST': break;
-    case 'PUT': break;
-    case 'DELETE': break;
-    default: echo 'test';
-    break;
+    case 'GET': if ($id !== "products.php")
+        print_r($products->read($id));
+    else
+        print_r($products->readAll());
+        break;
+    case 'POST': print_r($products->create($input));
+        break;
+    case 'PUT': print_r($products->update($input, $id));
+        break;
+    case 'DELETE': print_r($products->delete($id));
+        break;
 }
