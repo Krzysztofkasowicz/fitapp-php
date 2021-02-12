@@ -21,6 +21,7 @@ class DatabaseConnector
                 $username,
                 $password
             );
+            $this->connection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
         }
         catch (PDOException $e){
             exit($e->getMessage());
