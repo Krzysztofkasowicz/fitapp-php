@@ -16,15 +16,15 @@ Tried to make a universal model with CRUD methods. My plan was creating a model 
 * MySQL
 
 ## Run
-`git clone https://github.com/Krzysztofkasowicz/fitapp-php.git`
-`composer install`
-`touch .env`
-Add credentials to database:
-`DB_HOST=localhost
-DB_PORT=3306
-DB_DATABASE=database
-DB_USERNAME=root
-DB_PASSWORD=password`
+`git clone https://github.com/Krzysztofkasowicz/fitapp-php.git`  
+`composer install`  
+`touch .env`  
+Add credentials to database:  
+`DB_HOST=localhost  
+DB_PORT=3306  
+DB_DATABASE=database  
+DB_USERNAME=root  
+DB_PASSWORD=password`  
 
 Run PHP server for example XAMPP. You can quickly send requests using Postman.
 
